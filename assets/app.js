@@ -4,7 +4,7 @@ async function getJSON(path){const r=await fetch(path,{cache:'no-store'});if(!r.
 function safeLink(url){return url&&url!=='#'?url:'#commercial'}
 async function init(){
   try{
-    const [site,facts,tools,offers]=await Promise.all([getJSON('/data/site.json'),getJSON('/data/facts.json'),getJSON('/data/tools.json'),getJSON('/data/offers.json')]);
+    const [site,facts,tools,offers]=await Promise.all([getJSON('data/site.json'),getJSON('data/facts.json'),getJSON('data/tools.json'),getJSON('data/offers.json')]);
     document.title=`${site.siteName} — ${site.strapline}`;
     $('[data-hero-eyebrow]').textContent=site.heroEyebrow;$('[data-hero-title]').textContent=site.heroTitle;$('[data-hero-text]').textContent=site.heroText;
     const pc=$('[data-primary]');pc.textContent=site.primaryCta;pc.href=site.primaryCtaHref;const sc=$('[data-secondary]');sc.textContent=site.secondaryCta;sc.href=site.secondaryCtaHref;
